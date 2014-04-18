@@ -32,6 +32,7 @@ Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
 URL:        http://qt.digia.com
 Source:     %{name}-%{version}.tar.bz2
+Source1001: qt-designer.desktop
 BuildRequires:  qt5-qtgui-devel
 BuildRequires:  qt5-qtnetwork-devel
 BuildRequires:  qt5-qtcore-devel
@@ -170,6 +171,7 @@ applications that use QtDesigner
 
 %prep
 %setup -q -n %{name}-%{version}/qttools
+cp %{SOURCE1001} .
 
 %build
 export QTDIR=/usr/share/qt5
@@ -180,6 +182,9 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 %qmake5_install
+
+install -d "%{buildroot}%{_datadir}/applications/"
+install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 
 %fdupes %{buildroot}%{_libdir}
 %fdupes %{buildroot}%{_includedir}
@@ -286,6 +291,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %{_qt5_bindir}/designer
 %{_libdir}/libQt5Designer*.so.*
+%{_datadir}/applications/qt-designer.desktop
 
 %files qtdesigner-devel
 %defattr(-,root,root,-)
