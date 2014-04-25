@@ -33,6 +33,7 @@ License:    LGPL-2.1+ or GPL-3.0
 URL:        http://qt.digia.com
 Source:     %{name}-%{version}.tar.bz2
 Source1001: qt-designer.desktop
+Source1002: %{name}.manifest
 BuildRequires:  qt5-qtgui-devel
 BuildRequires:  qt5-qtnetwork-devel
 BuildRequires:  qt5-qtcore-devel
@@ -171,7 +172,9 @@ applications that use QtDesigner
 
 %prep
 %setup -q -n %{name}-%{version}/qttools
-cp %{SOURCE1001} .
+cp %{SOURCE1001} \
+   %{SOURCE1002} \
+   .
 
 %build
 export QTDIR=/usr/share/qt5
@@ -221,9 +224,11 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 
 %files
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 
 %files linguist
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_qt5_bindir}/lconvert
 %{_qt5_bindir}/linguist
 %{_qt5_bindir}/qtpaths
@@ -234,18 +239,22 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 
 %files pixeltool
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_qt5_bindir}/pixeltool
 
 %files qdbus
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_qt5_bindir}/qdbus
 %{_qt5_bindir}/qdbusviewer
 
 %files qtuitools
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 
 %files qtuitools-devel
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_includedir}/qt5/QtUiTools
 %{_libdir}/libQt5UiTools.prl
 %{_libdir}/libQt5UiTools.a
@@ -257,10 +266,12 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 
 %files qthelp
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_libdir}/libQt5Help.so.*
 
 %files qthelp-devel
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_qt5_bindir}/assistant
 %{_qt5_bindir}/qhelpgenerator
 %{_qt5_bindir}/qcollectiongenerator
@@ -276,10 +287,12 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 
 %files qtclucene
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_libdir}/libQt5CLucene.so.*
 
 %files qtclucene-devel
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_includedir}/qt5/QtCLucene
 %{_libdir}/libQt5CLucene.prl
 %{_libdir}/libQt5CLucene.la
@@ -289,12 +302,14 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
  
 %files qtdesigner
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_qt5_bindir}/designer
 %{_libdir}/libQt5Designer*.so.*
 %{_datadir}/applications/qt-designer.desktop
 
 %files qtdesigner-devel
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_includedir}/qt5/QtDesigner
 %{_includedir}/qt5/QtDesignerComponents
 %{_libdir}/libQt5Designer*.so
