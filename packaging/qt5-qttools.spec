@@ -26,7 +26,7 @@
 %define keep_static 1
 Name:       qt5-qttools
 Summary:    Development tools for Qt
-Version:    5.2.90+alpha
+Version:    5.2.95+rc1
 Release:    0
 Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
@@ -85,6 +85,18 @@ Requires(postun):   /sbin/ldconfig
 
 %description qdbus
 This package contains the qdbus and qdbusviewer tool
+
+%package qtdiag
+Summary:    The qtdiag tool
+Group:      Base/Libraries
+Requires:   %{name} = %{version}-%{release}
+Requires(post):     /sbin/ldconfig
+Requires(postun):   /sbin/ldconfig
+
+%description qtdiag
+The qtdiag is a command line tool that prints information
+about the Qt version and the graphics configuration.
+Its output can be used for CI logs and customer bug reports.
 
 %package qtuitools
 Summary:    The QtUiTools library
@@ -247,6 +259,11 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 %manifest %{name}.manifest
 %{_qt5_bindir}/qdbus
 %{_qt5_bindir}/qdbusviewer
+
+%files qtdiag
+%defattr(-,root,root,-)
+%manifest %{name}.manifest
+%{_qt5_bindir}/qtdiag
 
 %files qtuitools
 %defattr(-,root,root,-)
