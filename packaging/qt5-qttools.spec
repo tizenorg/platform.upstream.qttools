@@ -315,7 +315,6 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 %{_libdir}/libQt5Designer*.so
 %{_libdir}/libQt5Designer*.prl
 %{_libdir}/libQt5Designer*.la
-%{_libdir}/libQt5Designer*.prl
 %{_datadir}/qt5/mkspecs/modules/qt_lib_designer*.pri
 %{_libdir}/pkgconfig/Qt5Designer*.pc
 %{_libdir}/cmake/Qt5Designer
