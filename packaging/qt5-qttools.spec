@@ -26,7 +26,7 @@
 %define keep_static 1
 Name:       qt5-qttools
 Summary:    Development tools for Qt
-Version:    5.3.1
+Version:    5.3.99+beta1
 Release:    0
 Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
