@@ -183,12 +183,13 @@ applications that use QtDesigner
 
 
 %prep
-%setup -q -n %{name}-%{version}/qttools
+%setup -q -n %{name}-%{version}
+
+%build
 cp %{SOURCE1001} \
    %{SOURCE1002} \
    .
 
-%build
 export QTDIR=/usr/share/qt5
 touch .git
 qmake -qt=5
