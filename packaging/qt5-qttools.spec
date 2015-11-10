@@ -26,7 +26,7 @@
 %define keep_static 1
 Name:       qt5-qttools
 Summary:    Development tools for Qt
-Version:    5.4.1
+Version:    5.5.90+alpha1
 Release:    0
 Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
@@ -181,7 +181,6 @@ This package contains the files necessary to develop
 applications that use QtDesigner
 
 
-
 %prep
 %setup -q -n %{name}-%{version}
 
@@ -322,6 +321,7 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 %defattr(-,root,root,-)
 %manifest %{name}.manifest
 %{_qt5_bindir}/designer
+%{_qt5_bindir}/qtplugininfo
 %{_libdir}/libQt5Designer*.so.*
 %{_datadir}/applications/qt-designer.desktop
 
@@ -330,11 +330,14 @@ install qt-designer.desktop "%{buildroot}%{_datadir}/applications/"
 %manifest %{name}.manifest
 %{_includedir}/qt5/QtDesigner
 %{_includedir}/qt5/QtDesignerComponents
+%{_includedir}/qt5/QtUiPlugin
 %{_libdir}/libQt5Designer*.so
 %{_libdir}/libQt5Designer*.prl
 %{_libdir}/libQt5Designer*.la
 %{_datadir}/qt5/mkspecs/modules/qt_lib_designer*.pri
+%{_datadir}/qt5/mkspecs/modules/qt_lib_uiplugin.pri
 %{_libdir}/pkgconfig/Qt5Designer*.pc
 %{_libdir}/cmake/Qt5Designer
+%{_libdir}/cmake/Qt5UiPlugin
 
 #### No changelog section, separate $pkg.changes contains the history
